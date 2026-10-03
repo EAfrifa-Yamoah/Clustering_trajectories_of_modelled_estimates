@@ -1,0 +1,18 @@
+name: reproduce
+on: [push, pull_request]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install R and packages
+        run: sudo apt-get update && sudo apt-get install -y r-base-core r-cran-cluster r-cran-nnet r-cran-maps
+      - name: Reproduce analysis and run regression check
+        run: |
+          Rscript analysis/01_run_analysis.R
+          Rscript analysis/02_supplement_tables.R
+          Rscript tests/test_reproduction.R
+      - uses: actions/upload-artifact@v4
+        with:
+          name: output
+          path: output/

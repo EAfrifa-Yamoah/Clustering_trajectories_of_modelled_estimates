@@ -1,0 +1,6 @@
+"Model","Deviance","df","AIC","McFadden R2"
+"Intercept only",234.5,169,236.5,0
+"SDI",111,168,115,0.527
+"SDI + super region",87.1,162,103.1,0.629
+"SDI + interval width",104.5,167,110.5,0.554
+"SDI + super region + interval width",84.5,161,102.5,0.64

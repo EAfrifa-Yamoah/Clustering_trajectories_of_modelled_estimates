@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: If you use this code, please cite the manuscript below.
+title: "gbd-trajectory-clustering: uncertainty aware trajectory clustering of modelled estimates"
+version: 1.0.0
+date-released: 2026-10-03
+authors:
+  - family-names: Afrifa-Yamoah
+    given-names: Eben
+    orcid: https://orcid.org/0000-0003-1741-9249
+    affiliation: School of Science, Edith Cowan University
+preferred-citation:
+  type: unpublished
+  title: "Clustering trajectories of modelled estimates: an uncertainty aware framework, with an application to global cardiovascular disease burden, 1990 to 2023"
+  authors:
+    - family-names: Afrifa-Yamoah
+      given-names: Eben
+  year: 2026
