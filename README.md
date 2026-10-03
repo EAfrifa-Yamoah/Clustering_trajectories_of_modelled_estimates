@@ -2,14 +2,14 @@
 
 Code and data for *Clustering trajectories of modelled estimates: an uncertainty aware framework, with an application to global cardiovascular disease burden, 1990 to 2023* (Afrifa-Yamoah, draft v1.0, October 2026).
 
-The framework clusters country trajectories of modelled health estimates while carrying the published uncertainty through to cluster membership and to the choice of the number of clusters. Everything in the manuscript and its supplement is produced by two R scripts from the data files in `data/`.
+The framework clusters country trajectories of modelled health estimates while carrying the published uncertainty through to cluster membership and to the choice of the number of clusters. Every table and figure in the manuscript and its supplement is produced by two R scripts from the data files in `data/`; the LaTeX tabulars written to `output/tables/` are the ones the manuscript inputs.
 
 ## Quick start
 
 ```bash
 git clone https://github.com/EAfrifa-Yamoah/Clustering_trajectories_of_modelled_estimates.git
 cd Clustering_trajectories_of_modelled_estimates
-./run_all.sh          # about 2 minutes; builds output/ and, if pdflatex is present, the two PDFs
+./run_all.sh          # about 2 minutes; builds output/
 ```
 
 or step by step:
@@ -24,7 +24,7 @@ Set `GBD_B=200` in the environment for a quick run with fewer perturbation draws
 
 ## Requirements
 
-R 4.3 or later with the packages `cluster`, `nnet` and `maps` (all on CRAN; on Ubuntu `apt install r-cran-cluster r-cran-nnet r-cran-maps`). No other packages. `sessionInfo.txt` records the versions used for the archived run. LaTeX with `booktabs`, `longtable`, `natbib`, `adjustbox`, `lineno`, `microtype` and `listings` is needed only to build the PDFs.
+R 4.3 or later with the packages `cluster`, `nnet` and `maps` (all on CRAN; on Ubuntu `apt install r-cran-cluster r-cran-nnet r-cran-maps`). No other packages. `sessionInfo.txt` records the versions used for the archived run.
 
 ## Layout
 
@@ -36,8 +36,7 @@ analysis/02_supplement_tables.R   supplementary tables from output/final.RData
 tests/test_reproduction.R     regression check against data/reference_membership.csv
 tools/unwrap.R, unwrap_csv.R  convert GBD connector responses to panel CSVs (extraction only)
 data/                         input panels and lookups (see below)
-output/                       figures/, tables/, final.RData, final_membership.csv (generated)
-manuscript/                   manuscript.tex, supplement.tex, refs.bib, hyphenate.R
+output/                       figures/, tables/ (LaTeX tabulars), final.RData, final_membership.csv (generated)
 ```
 
 ## Data
@@ -75,4 +74,4 @@ Afrifa-Yamoah E. Clustering trajectories of modelled estimates: an uncertainty a
 
 ## Licence
 
-Code: MIT (see `LICENSE`). Data: IHME free of charge non commercial user agreement (see above). Manuscript text: all rights reserved pending publication.
+Code: MIT (see `LICENSE`). Data: IHME free of charge non commercial user agreement (see above). The manuscript and supplement are not part of this repository.

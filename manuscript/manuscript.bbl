@@ -1,0 +1,145 @@
+\begin{thebibliography}{18}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[{[Authors to be completed from arXiv record]}(2020)]{measerr2020}
+{[Authors to be completed from arXiv record]}.
+\newblock The effect of measurement error on clustering algorithms.
+\newblock \emph{arXiv preprint}, 2020.
+\newblock arXiv:2005.11743; complete the record before submission.
+
+\bibitem[{[Authors to be completed from PubMed record
+  40065233]}(2025)]{hivtb2025}
+{[Authors to be completed from PubMed record 40065233]}.
+\newblock Clustering and modeling joint-trajectories of {HIV/AIDS} and
+  tuberculosis mortality rates using {B}ayesian multi-process latent growth
+  model: a global study from 1990 to 2021.
+\newblock \emph{[Journal to be completed]}, 2025.
+\newblock PubMed 40065233; complete the record before submission.
+
+\bibitem[Den~Teuling et~al.(2024)Den~Teuling, Pauws, and van~den
+  Heuvel]{denteuling2024}
+Niek G.~P. Den~Teuling, Steffen~C. Pauws, and Edwin~R. van~den Heuvel.
+\newblock latrend: a framework for clustering longitudinal data.
+\newblock \emph{arXiv preprint}, 2024.
+\newblock arXiv:2402.14621; check for a journal version.
+
+\bibitem[Dowd et~al.(2025)Dowd, Polizzi, and Tilstra]{dowd2025}
+Jennifer~B. Dowd, Antonino Polizzi, and Andrea~M. Tilstra.
+\newblock Progress stalled? {T}he uncertain future of mortality in high-income
+  countries.
+\newblock \emph{Population and Development Review}, 51:\penalty0 257--293,
+  2025.
+\newblock \doi{10.1111/padr.12687}.
+
+\bibitem[Fang and Wang(2012)]{fang2012}
+Yixin Fang and Junhui Wang.
+\newblock Selection of the number of clusters via the bootstrap method.
+\newblock \emph{Computational Statistics and Data Analysis}, 56\penalty0
+  (3):\penalty0 468--477, 2012.
+\newblock VERIFY.
+
+\bibitem[Fouedjio et~al.(2026)Fouedjio, Arya, and Afrifa-Yamoah]{fouedjio2026}
+Francky Fouedjio, {[first name]} Arya, and Eben Afrifa-Yamoah.
+\newblock Geostatistical {R}-mode clustering of regionalized variables.
+\newblock \emph{Mathematical Geosciences}, 2026.
+\newblock \doi{10.1007/s11004-026-10322-9}.
+\newblock Complete the middle author's name and the volume and pages.
+
+\bibitem[{GBD 2016 Causes of Death Collaborators}(2017)]{gbd2016cod}
+{GBD 2016 Causes of Death Collaborators}.
+\newblock Global, regional, and national age-sex specific mortality for 264
+  causes of death, 1980--2016: a systematic analysis for the {G}lobal {B}urden
+  of {D}isease {S}tudy 2016.
+\newblock \emph{The Lancet}, 390\penalty0 (10100):\penalty0 1151--1210, 2017.
+\newblock \doi{10.1016/S0140-6736(17)32152-9}.
+
+\bibitem[{GBD 2023 Causes of Death Collaborators}(2025)]{gbd2023cod}
+{GBD 2023 Causes of Death Collaborators}.
+\newblock Global burden of 292 causes of death in 204 countries and territories
+  and 660 subnational locations, 1990--2023: a systematic analysis for the
+  {G}lobal {B}urden of {D}isease {S}tudy 2023.
+\newblock \emph{The Lancet}, 406\penalty0 (10513):\penalty0 1811--1872, 2025.
+\newblock \doi{10.1016/S0140-6736(25)01917-8}.
+
+\bibitem[{GBD 2023 Diseases and Injuries Collaborators}(2025)]{gbd2023dalys}
+{GBD 2023 Diseases and Injuries Collaborators}.
+\newblock Burden of 375 diseases and injuries, risk-attributable burden of 88
+  risk factors, and healthy life expectancy in 204 countries and territories,
+  including 660 subnational locations, 1990--2023: a systematic analysis for
+  the {G}lobal {B}urden of {D}isease {S}tudy 2023.
+\newblock \emph{The Lancet}, 406\penalty0 (10513), 2025.
+\newblock \doi{10.1016/S0140-6736(25)01637-X}.
+
+\bibitem[{Global Burden of Cardiovascular Diseases and Risks 2023
+  Collaboration}(2025)]{gbdcvd2025}
+{Global Burden of Cardiovascular Diseases and Risks 2023 Collaboration}.
+\newblock Global, regional, and national burden of cardiovascular diseases and
+  risk factors in 204 countries and territories, 1990--2023.
+\newblock \emph{Journal of the American College of Cardiology}, 2025.
+\newblock \doi{10.1016/j.jacc.2025.08.015}.
+\newblock In press at time of checking; volume and pages to be added.
+
+\bibitem[Hennig(2007)]{hennig2007}
+Christian Hennig.
+\newblock Cluster-wise assessment of cluster stability.
+\newblock \emph{Computational Statistics and Data Analysis}, 52\penalty0
+  (1):\penalty0 258--271, 2007.
+\newblock \doi{10.1016/j.csda.2006.11.025}.
+
+\bibitem[Hubert and Arabie(1985)]{hubert1985}
+Lawrence Hubert and Phipps Arabie.
+\newblock Comparing partitions.
+\newblock \emph{Journal of Classification}, 2:\penalty0 193--218, 1985.
+\newblock VERIFY.
+
+\bibitem[Lopez and Adair(2019)]{lopez2019}
+Alan~D. Lopez and Tim Adair.
+\newblock Is the long-term decline in cardiovascular-disease mortality in
+  high-income countries over? {E}vidence from national vital statistics.
+\newblock \emph{International Journal of Epidemiology}, 48\penalty0
+  (6):\penalty0 1815--1823, 2019.
+\newblock \doi{10.1093/ije/dyz143}.
+
+\bibitem[Moran(1950)]{moran1950}
+P.~A.~P. Moran.
+\newblock Notes on continuous stochastic phenomena.
+\newblock \emph{Biometrika}, 37:\penalty0 17--23, 1950.
+\newblock VERIFY.
+
+\bibitem[Mu{\~n}oz~Laguna(2024)]{munozlaguna2024}
+Javier Mu{\~n}oz~Laguna.
+\newblock Global {B}urden of {D}isease estimates of low back pain: time to
+  consider and assess certainty?
+\newblock \emph{International Journal of Public Health}, 69:\penalty0 1606557,
+  2024.
+\newblock \doi{10.3389/ijph.2024.1606557}.
+
+\bibitem[Murtagh and Legendre(2014)]{murtagh2014}
+Fionn Murtagh and Pierre Legendre.
+\newblock Ward's hierarchical agglomerative clustering method: which algorithms
+  implement {W}ard's criterion?
+\newblock \emph{Journal of Classification}, 31:\penalty0 274--295, 2014.
+\newblock VERIFY.
+
+\bibitem[Rousseeuw(1987)]{rousseeuw1987}
+Peter~J. Rousseeuw.
+\newblock Silhouettes: a graphical aid to the interpretation and validation of
+  cluster analysis.
+\newblock \emph{Journal of Computational and Applied Mathematics}, 20:\penalty0
+  53--65, 1987.
+\newblock VERIFY.
+
+\bibitem[Tibshirani et~al.(2001)Tibshirani, Walther, and
+  Hastie]{tibshirani2001}
+Robert Tibshirani, Guenther Walther, and Trevor Hastie.
+\newblock Estimating the number of clusters in a data set via the gap
+  statistic.
+\newblock \emph{Journal of the Royal Statistical Society: Series B},
+  63\penalty0 (2):\penalty0 411--423, 2001.
+\newblock VERIFY.
+
+\end{thebibliography}
