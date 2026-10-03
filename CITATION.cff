@@ -1,6 +1,7 @@
 cff-version: 1.2.0
 message: If you use this code, please cite the manuscript below.
-title: "gbd-trajectory-clustering: uncertainty aware trajectory clustering of modelled estimates"
+title: "Clustering trajectories of modelled estimates: uncertainty aware trajectory clustering code and data"
+repository-code: https://github.com/EAfrifa-Yamoah/Clustering_trajectories_of_modelled_estimates
 version: 1.0.0
 date-released: 2026-10-03
 authors:

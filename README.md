@@ -1,4 +1,4 @@
-# gbd-trajectory-clustering
+# Clustering trajectories of modelled estimates
 
 Code and data for *Clustering trajectories of modelled estimates: an uncertainty aware framework, with an application to global cardiovascular disease burden, 1990 to 2023* (Afrifa-Yamoah, draft v1.0, October 2026).
 
@@ -7,8 +7,8 @@ The framework clusters country trajectories of modelled health estimates while c
 ## Quick start
 
 ```bash
-git clone <this repository>
-cd gbd-trajectory-clustering
+git clone https://github.com/EAfrifa-Yamoah/Clustering_trajectories_of_modelled_estimates.git
+cd Clustering_trajectories_of_modelled_estimates
 ./run_all.sh          # about 2 minutes; builds output/ and, if pdflatex is present, the two PDFs
 ```
 
