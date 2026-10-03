@@ -17,6 +17,8 @@
 \graphicspath{{figures/}}
 \captionsetup{font=small,labelfont=bf,justification=justified}
 \renewcommand{\thetable}{S\arabic{table}}
+\setlength{\LTcapwidth}{\textwidth}
+\captionsetup[longtable]{justification=justified,singlelinecheck=false}
 \renewcommand{\thefigure}{S\arabic{figure}}
 \renewcommand{\theequation}{S\arabic{equation}}
 \renewcommand{\thesection}{S\arabic{section}}
@@ -69,7 +71,7 @@ The quantity $w_i$ of main-text equation (2) is the country mean of the per-obse
 
 Table~\ref{S1} lists every country in the analysis set with its super region, World Bank income group, 2023 SDI, percentage change in the age-standardised DALY and death rates from 1990 to 2023, year of the cardiovascular DALY peak, interval width, and the assigned cluster and membership probability under the primary analysis, the deaths analysis and the 2000 to 2023 window. Cluster 1 is stalled, cluster 2 sustained decline, and 0 unassigned (membership probability below 0.70).
 
-\begingroup\scriptsize
+\begingroup\scriptsize\setlength{\tabcolsep}{3.2pt}
 \input{tables/tabS1.tex}
 \endgroup
 
