@@ -238,13 +238,8 @@ The interval width adds information too. Added to the SDI only model it is signi
 \adjustbox{max width=\textwidth}{\input{tables/tab4.tex}}
 \end{table}
 
-The multinomial model over all 201 countries confirms the reading of the unassigned class as countries in transition rather than noise (Figure~\ref{fig:multinom}). SDI alone gives McFadden $R^2$ of 0.36 and super region adds significantly ($p = 0.002$). The predicted probability of being unassigned rises from near zero at low SDI to a peak of 0.26 at SDI 0.6, exactly where the stalled and decline curves cross, and falls again above 0.8. The framework declines to place countries at the point where the two-shapes are least distinguishable, which is what an honest classifier should do.
+The multinomial model over all 201 countries confirms the reading of the unassigned class as countries in transition rather than noise (Supplementary Figure S2). SDI alone gives McFadden $R^2$ of 0.36 and super region adds significantly ($p = 0.002$). The predicted probability of being unassigned rises from near zero at low SDI to a peak of 0.26 at SDI 0.6, exactly where the stalled and decline curves cross, and falls again above 0.8. The framework declines to place countries at the point where the two-shapes are least distinguishable, which is what an honest classifier should do.
 
-\begin{figure}[t]
-\centering\includegraphics[width=0.7\textwidth]{fig8.png}
-\caption{Predicted probability of each membership outcome across the Socio-demographic Index from the multinomial model on SDI alone. Ticks on the horizontal axis mark the SDI of the 31 unassigned countries.}
-\label{fig:multinom}
-\end{figure}
 
 \subsection{Robustness}
 
@@ -316,7 +311,7 @@ For analysts of GBD and similar modelled outputs, the practical recommendation i
 \paragraph{Colour convention.} The same colours carry the same meaning in every figure: orange for the stalled cluster, blue for the sustained decline cluster, green for the third cluster of the narrow interval analysis, dark grey for unassigned countries.
 
 \section*{Supplementary material}
-Supplementary Table S2 lists all 201 countries with region, income group, SDI, change in DALYs and deaths, peak year, interval width, and cluster and membership probability under the primary, deaths and 2000 window analyses. Table S3 lists the unassigned countries, Table S4 gives Moran's I for four to ten nearest neighbours, Table S5 the sensitivity to the tuning constants, Table S6 the selection diagnostics for every robustness run, and Table S7 the composition of the narrow-interval solution. Section S1 documents the extraction and Section S6 the reproduction steps. The R scripts \texttt{final\_analysis.R} and \texttt{extended\_analysis.R}, the four panels and the two lookup tables reproduce every result.
+Supplementary Table S2 lists all 201 countries with region, income group, SDI, change in DALYs and deaths, peak year, interval width, and cluster and membership probability under the primary, deaths and 2000 window analyses. Table S3 lists the unassigned countries, Table S4 gives Moran's I for four to ten nearest neighbours, Table S5 the sensitivity to the tuning constants, Table S6 the selection diagnostics for every robustness run, and Table S7 the composition of the narrow-interval solution. Figure S1 plots the selection diagnostics for the four robustness runs and Figure S2 the multinomial predicted probabilities across SDI. Section S1 documents the extraction and Section S6 the reproduction steps. The R scripts \texttt{final\_analysis.R} and \texttt{extended\_analysis.R}, the four panels and the two lookup tables reproduce every result.
 
 \bibliographystyle{plainnat}
 \bibliography{refs}

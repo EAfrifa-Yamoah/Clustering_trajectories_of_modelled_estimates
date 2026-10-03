@@ -158,3 +158,15 @@ lines(sg, pr[,"stalled"], col=pal[1], lwd=3); lines(sg, pr[,"decline"], col=pal[
 rug(meta$sdi[meta$assigned==0], col=gU); legend("top", horiz=TRUE, bty="n", lwd=3, col=c(pal[1:2],gU), legend=c("Stalled","Sustained decline","Unassigned")); dev.off()
 
 write.csv(meta, "output/final_membership.csv", row.names=FALSE); save.image("output/final.RData"); cat("DONE\n")
+
+# Fig S1 (supplement only): k selection diagnostics for the four robustness runs
+runs <- list("Deaths 1990 to 2023"=rM, "DALYs 2000 to 2023"=r2, "Narrowest half of intervals"=rs, "Country bootstrap"=rB)
+png(fig("figS1.png"), width=2400, height=1500, res=220); par(mfrow=c(2,2), mar=c(4,4.4,2.2,3.5))
+for (nm in names(runs)) { r <- runs[[nm]]; kk <- 2:(length(r$sil)+1)
+  plot(kk, r$weakest, type="b", pch=16, xlab="Number of clusters k", ylab="Weakest cluster median membership", las=1, ylim=c(0,1), main="")
+  mtext(nm, side=3, line=0.4, cex=0.8, adj=0); abline(h=0.8, lty=2); abline(v=r$k, col="grey60", lty=3)
+  points(kk, 1-r$unas, type="b", pch=1, lty=3)
+  par(new=TRUE); plot(kk, r$sil, type="b", pch=17, col="grey45", axes=FALSE, xlab="", ylab="", ylim=c(0,0.6)); axis(4, las=1, col="grey45", col.axis="grey45")
+  if (nm == names(runs)[1]) legend("topright", bty="n", pch=c(16,1,17), lty=c(1,3,1), col=c("black","black","grey45"), cex=0.75,
+    legend=c("Weakest cluster median (left axis)","Share assigned (left axis)","Mean silhouette (right axis)")) }
+dev.off()

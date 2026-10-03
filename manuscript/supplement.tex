@@ -62,13 +62,8 @@ Two fields were retained per country-year: the age-standardised rate for both se
 
 \subsection{Interval width as a measurement quality proxy}
 
-The quantity $w_i$ of main-text equation (2) is the country mean of the per-observation log-scale standard deviation implied by the published interval of the all-ages DALY rate. Figure~\ref{fig:widthreg} shows its distribution by super region. The median is 0.024 in Central and Eastern Europe and Central Asia, 0.033 in Latin America and the Caribbean, 0.038 in the high-income super region, 0.067 in North Africa and the Middle East, 0.069 in Southeast Asia, East Asia and Oceania, 0.097 in South Asia and 0.107 in sub-Saharan Africa. The proxy reflects every source of modelling uncertainty, not only the sparseness of primary data, and would be replaced by GBD's published vital registration star ratings in a final analysis.
+The quantity $w_i$ of main-text equation (2) is the country mean of the per-observation log-scale standard deviation implied by the published interval of the all-ages DALY rate. Figure 7a of the main text shows its distribution by super region. The median is 0.024 in Central and Eastern Europe and Central Asia, 0.033 in Latin America and the Caribbean, 0.038 in the high-income super region, 0.067 in North Africa and the Middle East, 0.069 in Southeast Asia, East Asia and Oceania, 0.097 in South Asia and 0.107 in sub-Saharan Africa. The proxy reflects every source of modelling uncertainty, not only the sparseness of primary data, and would be replaced by GBD's published vital registration star ratings in a final analysis.
 
-\begin{figure}[h]
-\centering\includegraphics[width=\textwidth]{fig7.png}
-\caption{Measurement quality. (a) Mean log-scale standard deviation of the published interval by super region. (b) Interval width against membership probability in the primary analysis. (c) Centred trajectories for the 101 countries with the narrowest intervals, coloured by the three-cluster solution found on that subset.}
-\label{fig:widthreg}
-\end{figure}
 
 \section{Country-level results}
 
@@ -142,15 +137,18 @@ Table~\ref{tab:narrow} gives the composition by super region of the three-cluste
 
 \section{Additional figures}
 
+Figure~\ref{fig:kall} plots the selection diagnostics of Table~\ref{tab:kall} for the four robustness runs, in the same form as main-text Figure 3. In three of the four the picture matches the primary analysis: a steep fall in the weakest cluster median membership between $k = 2$ and $k = 3$ while silhouette declines smoothly. The narrow-interval subset is the exception, with medians of 0.86 and 0.85 at $k = 2$ and $k = 3$ before the fall, which is the three-cluster solution described in Section S4.4.
+
 \begin{figure}[h]
-\centering\includegraphics[width=\textwidth]{fig6.png}
-\caption{Robustness. (a) Change in the age-standardised death rate against change in the DALY rate, 1990 to 2023, coloured by the primary cluster. (b) Centred DALY trajectories over 2000 to 2023, coloured by the window analysis cluster. (c) Membership probability at $k = 3$ under country bootstrap against value perturbation, coloured by the primary cluster; dashed lines at 0.70.}
-\label{fig:robust}
+\centering\includegraphics[width=\textwidth]{figS1.png}
+\caption{Selection diagnostics for the four robustness runs. Filled circles, weakest cluster median membership probability (left axis); open circles, share of countries assigned (left axis); triangles, mean silhouette width (right axis). Dashed line, the 0.80 rule; dotted vertical, the $k$ the rule selects.}
+\label{fig:kall}
 \end{figure}
+
 
 \begin{figure}[h]
 \centering\includegraphics[width=0.7\textwidth]{fig8.png}
-\caption{Predicted probability of each membership outcome across the Socio-demographic Index from the multinomial model on SDI alone. Ticks on the horizontal axis mark the SDI of the 31 unassigned countries.}
+\caption{Predicted probability of each membership outcome across the Socio-demographic Index from the multinomial model on SDI alone. Ticks on the horizontal axis mark the SDI of the 31 unassigned countries. Referred to in main-text Section 4.3.}
 \label{fig:multinom}
 \end{figure}
 
