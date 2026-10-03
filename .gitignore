@@ -14,3 +14,4 @@ manuscript/*.fdb_latexmk
 manuscript/*.pdf
 .Rhistory
 .RData
+texput.log
