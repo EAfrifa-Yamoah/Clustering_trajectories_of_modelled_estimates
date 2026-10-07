@@ -1,5 +1,7 @@
 # Clustering trajectories of modelled estimates
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23202766.svg)](https://doi.org/10.5281/zenodo.23202766)
+
 Code and data for *Clustering trajectories of modelled estimates: an uncertainty aware framework, with an application to global cardiovascular disease burden, 1990 to 2023* (Afrifa-Yamoah, draft v1.0, October 2026).
 
 The framework clusters country trajectories of modelled health estimates while carrying the published uncertainty through to cluster membership and to the choice of the number of clusters. Every table and figure in the manuscript and its supplement is produced by two R scripts from the data files in `data/`; the LaTeX tabulars written to `output/tables/` are the ones the manuscript inputs.
@@ -70,7 +72,15 @@ For country *i* and year *t*, with *y* the log age standardised rate and *s* the
 
 ## Citation
 
-Afrifa-Yamoah E. Clustering trajectories of modelled estimates: an uncertainty aware framework, with an application to global cardiovascular disease burden, 1990 to 2023. Draft, 2026. See `CITATION.cff`.
+If you use the code or data, please cite the archived release:
+
+Afrifa-Yamoah E. (2026). *Clustering trajectories of modelled estimates: uncertainty aware trajectory clustering code and data* (Version 1.0.0) [Computer software]. Zenodo. [https://doi.org/10.5281/zenodo.23202766](https://doi.org/10.5281/zenodo.23202766)
+
+and the accompanying manuscript:
+
+Afrifa-Yamoah E. Clustering trajectories of modelled estimates: an uncertainty aware framework, with an application to global cardiovascular disease burden, 1990 to 2023. Draft, 2026.
+
+Citation metadata are in `CITATION.cff`; GitHub's "Cite this repository" button reads from it.
 
 ## Licence
 
