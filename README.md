@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23202766.svg)](https://doi.org/10.5281/zenodo.23202766)
 
-Code and data for *Clustering trajectories of modelled estimates: an uncertainty aware framework, with an application to global cardiovascular disease burden, 1990 to 2023* (Afrifa-Yamoah, draft, 2026).
+Code and data for *Clustering trajectories of modelled estimates: an uncertainty aware framework, with an application to global cardiovascular disease burden, 1990 to 2023* (Afrifa-Yamoah, draft v1.2, 2026).
 
 The framework clusters country trajectories of modelled health estimates while carrying the published uncertainty through to cluster membership and to the choice of the number of clusters. Every table and figure of the primary analysis is produced by two R scripts from the data files in `data/`. Two further scripts examine how far the result depends on choices the primary analysis fixes (independence of the perturbations across years, the clustering algorithm, the scale of the perturbation) and test the selection rule on simulated data with a known number of trajectory types. The LaTeX tabulars written to `output/tables/` are the ones the manuscript inputs.
 
@@ -162,7 +162,7 @@ Afrifa-Yamoah E. (2026). *Clustering trajectories of modelled estimates: uncerta
 
 and the accompanying manuscript:
 
-Afrifa-Yamoah E. Clustering trajectories of modelled estimates: an uncertainty aware framework, with an application to global cardiovascular disease burden, 1990 to 2023. Draft, 2026.
+Afrifa-Yamoah E. Clustering trajectories of modelled estimates: an uncertainty aware framework, with an application to global cardiovascular disease burden, 1990 to 2023. Draft v1.2, 2026.
 
 The Zenodo archive holds release v1.0.0, which contains the primary analysis only. The sensitivity and simulation scripts (`analysis/03_*.R`, `analysis/04_*.R`), the `rho` and `method` arguments in `R/framework.R` and their outputs are present in this repository but not yet in an archived release.
 
