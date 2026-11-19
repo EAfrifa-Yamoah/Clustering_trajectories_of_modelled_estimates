@@ -6,7 +6,7 @@ Code and data for *Clustering trajectories of modelled estimates: an uncertainty
 
 The framework clusters country trajectories of modelled health estimates while carrying the published uncertainty through to cluster membership and to the choice of the number of clusters. Every table and figure of the primary analysis is produced by two R scripts from the data files in `data/`. Two further scripts examine how far the result depends on choices the primary analysis fixes (independence of the perturbations across years, the clustering algorithm, the scale of the perturbation) and test the selection rule on simulated data with a known number of trajectory types. The LaTeX tabulars written to `output/tables/` are the ones the manuscript inputs.
 
-The sensitivity and simulation scripts were added after the archived release v1.0.0; see [Citation](#citation).
+The repository is at version 1.1.0. The sensitivity and simulation scripts were added in this version, after the archived release v1.0.0; see [Citation](#citation).
 
 ## Quick start
 
@@ -28,6 +28,18 @@ Rscript tests/test_reproduction.R                        # checks the run agains
 ```
 
 The scripts must run in this order: `03` reads `output/final.RData` written by `01`, and `04` reads both that file and `output/sensitivity.RData` written by `03`.
+
+Runtimes measured on a four core Linux machine (Ubuntu 24.04, R 4.3.3) at the default settings:
+
+| Step | Runtime |
+|---|---|
+| `01_run_analysis.R` | about 1 minute |
+| `02_supplement_tables.R` | under 1 second |
+| `03_sensitivity_dependence_algorithm.R` | about 3 minutes |
+| `04_simulation_known_truth.R` | about 11 minutes |
+| `tests/test_reproduction.R` | under 1 second |
+
+`./run_all.sh` therefore takes about 4 minutes and `./run_all.sh --sim` about 15 minutes on such a machine. `03` and `04` run their jobs in parallel, so both take longer on fewer cores; `01` does not use more than one.
 
 ### Run settings
 
@@ -152,7 +164,7 @@ Several features limit what can be read from these figures. With 50 data sets pe
 
 ## Regression test
 
-`tests/test_reproduction.R` stops with an error unless the run reproduces the archived partition and membership probabilities in `data/reference_membership.csv` to within 1e-9, together with the headline results of the primary analysis. When `output/sensitivity.RData` is present and B = 1000 it also checks that Ward selects two clusters at every `rho`, that PAM and k-means select four with independent perturbations, and that the label agreement counts (170 the same, 29 of the differing countries unassigned) match the archived run. The simulation is not covered by the test; compare a rerun against the tracked `sim_summary.csv`.
+`tests/test_reproduction.R` stops with an error unless the run reproduces the archived partition and membership probabilities in `data/reference_membership.csv` to within 1e-9, together with the headline results of the primary analysis. When `output/sensitivity.RData` is present and B = 1000 it also checks that Ward selects two clusters at every `rho`, that PAM and k-means select four with independent perturbations, and that the label agreement counts (170 the same, 29 of the differing countries unassigned) match the archived run. The simulation is not covered by the test. A rerun at the default settings on Ubuntu 24.04 with R 4.3.3 and `cluster` 2.1.6 reproduced the tracked `sim_replicates.csv`, `sim_summary.csv` and `tabS12.tex` byte for byte; on another platform compare a rerun against the tracked `sim_summary.csv`.
 
 ## Citation
 
@@ -164,9 +176,9 @@ and the accompanying manuscript:
 
 Afrifa-Yamoah E. Clustering trajectories of modelled estimates: an uncertainty aware framework, with an application to global cardiovascular disease burden, 1990 to 2023. Draft v1.2, 2026.
 
-The Zenodo archive holds release v1.0.0, which contains the primary analysis only. The sensitivity and simulation scripts (`analysis/03_*.R`, `analysis/04_*.R`), the `rho` and `method` arguments in `R/framework.R` and their outputs are present in this repository but not yet in an archived release.
+The Zenodo archive holds release v1.0.0, which contains the primary analysis only, and the DOI above resolves to that release. Version 1.1.0 adds the sensitivity and simulation scripts (`analysis/03_*.R`, `analysis/04_*.R`), the `rho` and `method` arguments in `R/framework.R` and their outputs. It has not yet been archived, so work that relies on these additions should cite the repository at version 1.1.0 by its URL and commit until a DOI for that version exists.
 
-Citation metadata are in `CITATION.cff`; GitHub's "Cite this repository" button reads from it.
+Citation metadata are in `CITATION.cff`, which records version 1.1.0; GitHub's "Cite this repository" button reads from it.
 
 ## Licence
 
