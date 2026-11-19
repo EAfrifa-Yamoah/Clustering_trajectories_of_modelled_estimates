@@ -6,7 +6,7 @@ Code and data for *Clustering trajectories of modelled estimates: an uncertainty
 
 The framework clusters country trajectories of modelled health estimates while carrying the published uncertainty through to cluster membership and to the choice of the number of clusters. Every table and figure of the primary analysis is produced by two R scripts from the data files in `data/`. Two further scripts examine how far the result depends on choices the primary analysis fixes (independence of the perturbations across years, the clustering algorithm, the scale of the perturbation) and test the selection rule on simulated data with a known number of trajectory types. The LaTeX tabulars written to `output/tables/` are the ones the manuscript inputs.
 
-The sensitivity and simulation scripts were added after the archived release v1.0.0; see [Citation](#citation).
+The repository is at version 1.1.0. The sensitivity and simulation scripts were added in this version, after the archived release v1.0.0; see [Citation](#citation).
 
 ## Quick start
 
@@ -176,9 +176,9 @@ and the accompanying manuscript:
 
 Afrifa-Yamoah E. Clustering trajectories of modelled estimates: an uncertainty aware framework, with an application to global cardiovascular disease burden, 1990 to 2023. Draft v1.2, 2026.
 
-The Zenodo archive holds release v1.0.0, which contains the primary analysis only. The sensitivity and simulation scripts (`analysis/03_*.R`, `analysis/04_*.R`), the `rho` and `method` arguments in `R/framework.R` and their outputs are present in this repository but not yet in an archived release.
+The Zenodo archive holds release v1.0.0, which contains the primary analysis only, and the DOI above resolves to that release. Version 1.1.0 adds the sensitivity and simulation scripts (`analysis/03_*.R`, `analysis/04_*.R`), the `rho` and `method` arguments in `R/framework.R` and their outputs. It has not yet been archived, so work that relies on these additions should cite the repository at version 1.1.0 by its URL and commit until a DOI for that version exists.
 
-Citation metadata are in `CITATION.cff`; GitHub's "Cite this repository" button reads from it.
+Citation metadata are in `CITATION.cff`, which records version 1.1.0; GitHub's "Cite this repository" button reads from it.
 
 ## Licence
 
