@@ -170,23 +170,23 @@ Several features limit what can be read from these figures. With 50 data sets pe
 
 If you use the code or data, please cite the archived release:
 
-Afrifa-Yamoah E. (2026). *Clustering trajectories of modelled estimates: uncertainty aware trajectory clustering code and data* (Version 1.1.1) [Computer software]. Zenodo. [https://doi.org/10.5281/zenodo.23202765](https://doi.org/10.5281/zenodo.23202765)
+Afrifa-Yamoah E. (2026). *Clustering trajectories of modelled estimates: uncertainty aware trajectory clustering code and data* (Version 1.1.1) [Computer software]. Zenodo. [https://doi.org/10.5281/zenodo.24372903](https://doi.org/10.5281/zenodo.24372903)
 
 and the accompanying manuscript:
 
 Afrifa-Yamoah E. Clustering trajectories of modelled estimates: an uncertainty aware framework, with an application to global cardiovascular disease burden, 1990 to 2023. Draft v1.2, 2026.
 
-The DOI in this citation, [10.5281/zenodo.23202765](https://doi.org/10.5281/zenodo.23202765), is the Zenodo concept DOI: it covers all versions and resolves to the latest archived release. A DOI specific to a version exists only once Zenodo has archived that release, so it cannot be written into the files of the release itself.
+Zenodo holds three archived releases, each with its own DOI. The concept DOI [10.5281/zenodo.23202765](https://doi.org/10.5281/zenodo.23202765), shown in the badge above and recorded in `CITATION.cff`, covers all versions and resolves to the latest one. A DOI specific to a version exists only once Zenodo has archived that release, so it cannot be written into the files of the release itself.
 
 | Version | DOI | Content |
 |---|---|---|
-| 1.1.1 | assigned by Zenodo when the release is archived; listed on the concept DOI page | as 1.1.0, with measured runtimes in the README and corrected version and DOI metadata in `CITATION.cff` |
+| 1.1.1 | [10.5281/zenodo.24372903](https://doi.org/10.5281/zenodo.24372903) | as 1.1.0, with measured runtimes in the README |
 | 1.1.0 | [10.5281/zenodo.24372735](https://doi.org/10.5281/zenodo.24372735) | primary analysis, sensitivity analyses (`analysis/03_*.R`), simulation (`analysis/04_*.R`), the `rho` and `method` arguments in `R/framework.R` |
 | 1.0.0 | [10.5281/zenodo.23202766](https://doi.org/10.5281/zenodo.23202766) | primary analysis only |
 
-Where a DOI specific to the version used is available, cite that one. Code, data and output files are identical in versions 1.1.0 and 1.1.1, so results do not depend on which of the two is used.
+Cite the DOI of the version used. Code, data and output files are identical in versions 1.1.0 and 1.1.1 and in this repository, so results do not depend on which of them is used.
 
-The v1.1.0 archive is a snapshot of commit `984db47`. Its code, data and output files are identical to those in this repository; its copies of `README.md` and `CITATION.cff` predate the runtime table and the version 1.1.0 metadata, so `CITATION.cff` inside the archive still reads version 1.0.0.
+Each of the two later archives was taken one commit before the citation metadata for its version was merged, so the `CITATION.cff` inside each archive is one version behind. The v1.1.0 archive is a snapshot of commit `984db47`: its `CITATION.cff` reads version 1.0.0 and its README has no runtime table. The v1.1.1 archive is a snapshot of commit `16fdb4d`: its README has the runtime table, and its `CITATION.cff` reads version 1.1.0 with the DOI of v1.0.0. The DOIs in the table above are the authoritative identifiers of the archives; the version labels on Zenodo are correct.
 
 Citation metadata are in `CITATION.cff`, which records version 1.1.1 and the concept DOI; GitHub's "Cite this repository" button reads from it.
 
