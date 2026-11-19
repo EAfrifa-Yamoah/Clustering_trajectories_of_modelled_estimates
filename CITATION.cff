@@ -8,6 +8,9 @@ identifiers:
     value: 10.5281/zenodo.23202765
     description: Zenodo concept DOI covering all versions; resolves to the latest release
   - type: doi
+    value: 10.5281/zenodo.24372903
+    description: Zenodo archive of release v1.1.1
+  - type: doi
     value: 10.5281/zenodo.24372735
     description: Zenodo archive of release v1.1.0
   - type: doi
