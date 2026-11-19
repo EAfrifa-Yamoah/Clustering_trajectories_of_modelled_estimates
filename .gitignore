@@ -5,3 +5,5 @@ output/final_membership.csv
 .RData
 texput.log
 manuscript/
+output/sensitivity.RData
+output/simulation.RData
