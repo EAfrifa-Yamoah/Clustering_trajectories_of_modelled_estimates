@@ -1,6 +1,6 @@
 # framework.R
 # Uncertainty aware trajectory clustering of modelled estimates.
-# Functions implementing equations (1) to (12) of the manuscript. Base R plus the cluster package.
+# Functions implementing equations (1) to (13) of the manuscript (v1.2 numbering). Base R plus the cluster package.
 # Source this file; nothing is executed on load.
 
 suppressPackageStartupMessages(library(cluster))
@@ -36,21 +36,47 @@ hcl <- function(X, k) cutree(hclust(dist(X), "ward.D2"), k)
 #' Level and shape decomposition, equation (3). Returns the shape matrix (rows sum to zero).
 shape_of <- function(Y) sweep(Y, 1, rowMeans(Y))
 
+#' Standard normal perturbations with AR(1) dependence across years within a country.
+#' Each row is a stationary AR(1) series with unit marginal variance and lag one correlation rho,
+#' so every value keeps the marginal standard deviation implied by its published interval whatever
+#' rho is. rho = 0 gives the independent draws of equation (6) and consumes the random number
+#' stream exactly as matrix(rnorm(n * T), n) does; rho = 1 gives one common shock per country.
+#' @param n,T number of countries and years; rho lag one correlation in [0, 1]
+ar1_noise <- function(n, T, rho = 0) {
+  Z <- matrix(rnorm(n * T), n); if (rho == 0) return(Z)
+  U <- Z; for (t in 2:T) U[, t] <- rho * U[, t - 1] + sqrt(1 - rho^2) * Z[, t]
+  U
+}
+
+#' Clustering algorithms available to the framework. Each returns function(X, k) -> integer labels.
+#' ward: Ward's criterion (ward.D2). pam: partitioning around medoids on Euclidean distance.
+#' kmeans: Hartigan and Wong k-means, 25 random starts. average: average linkage (UPGMA).
+clusterer <- function(method = c("ward", "pam", "kmeans", "average")) {
+  switch(match.arg(method),
+    ward    = hcl,
+    pam     = function(X, k) cluster::pam(X, k, cluster.only = TRUE),
+    kmeans  = function(X, k) kmeans(X, k, nstart = 25, iter.max = 100)$cluster,
+    average = function(X, k) cutree(hclust(dist(X), "average"), k))
+}
+
 #' Membership probabilities under value perturbation (equations 6 to 8) or country bootstrap.
 #' @param Y,S log rate and log SD matrices
-#' @param hc reference hclust object on shape_of(Y)
+#' @param hc reference hclust object on shape_of(Y); ignored when ref is supplied
 #' @param k number of clusters
 #' @param B number of draws
 #' @param mode "value" perturbs every value within its published SD; "country" resamples countries
+#' @param rho lag one correlation of the perturbations across years (value mode only); 0 = independent
+#' @param cl clustering function(X, k) used to recluster each draw; default Ward
+#' @param ref reference labels; default cutree(hc, k)
 #' @return list(ref = reference labels, p = membership probability per country)
-stability <- function(Y, S, hc, k, B, mode = c("value", "country")) {
-  mode <- match.arg(mode); ref <- cutree(hc, k); shape <- shape_of(Y)
+stability <- function(Y, S, hc, k, B, mode = c("value", "country"), rho = 0, cl = hcl, ref = NULL) {
+  mode <- match.arg(mode); if (is.null(ref)) ref <- cutree(hc, k); shape <- shape_of(Y)
   agree <- numeric(nrow(Y)); drawn <- numeric(nrow(Y))
   for (b in seq_len(B)) {
     if (mode == "value") {
-      Yb <- Y + matrix(rnorm(length(Y)), nrow(Y)) * S; idx <- seq_len(nrow(Y)); clb <- hcl(shape_of(Yb), k)
+      Yb <- Y + ar1_noise(nrow(Y), ncol(Y), rho) * S; idx <- seq_len(nrow(Y)); clb <- cl(shape_of(Yb), k)
     } else {
-      idx <- sort(unique(sample(nrow(Y), replace = TRUE))); clb <- hcl(shape[idx, ], k) }
+      idx <- sort(unique(sample(nrow(Y), replace = TRUE))); clb <- cl(shape[idx, ], k) }
     lab <- apply(table(clb, ref[idx]), 1, which.max)            # equation (7), majority overlap alignment
     agree[idx] <- agree[idx] + (lab[clb] == ref[idx]); drawn[idx] <- drawn[idx] + 1 }
   list(ref = ref, p = agree / drawn)
@@ -59,26 +85,32 @@ stability <- function(Y, S, hc, k, B, mode = c("value", "country")) {
 #' The full framework: shape clustering, three k selection criteria, membership and assignment.
 #' @param tau assignment threshold, equation (9); pi_ stability rule, equation (10)
 #' @param kmax largest k examined; gapB reference sets for the gap statistic, equation (11)
+#' @param rho lag one correlation of the value perturbations across years; 0 reproduces equation (6)
+#' @param method clustering algorithm, see clusterer(); "ward" is the manuscript's primary choice
 #' @return list with shape, hc, sil, gap, gap_se, k_sil, k_gap, k, weakest, unas, cluster, p, assigned, stab.
-#'   Clusters are relabelled so that cluster 1 has the least decline over the window.
-framework <- function(Y, S, B = 1000, tau = 0.70, pi_ = 0.80, kmax = 6, mode = "value", gapB = 100) {
-  shape <- shape_of(Y); hc <- hclust(dist(shape), "ward.D2"); dsh <- dist(shape)
-  sil <- sapply(2:kmax, function(k) mean(silhouette(cutree(hc, k), dsh)[, 3]))
-  gap <- clusGap(shape, function(x, k) list(cluster = hcl(x, k)), K.max = kmax, B = gapB, verbose = FALSE)
+#'   Clusters are relabelled so that cluster 1 has the least decline over the window. k is NA when no
+#'   partition meets the stability rule; cluster, p and assigned are then reported at k = 2.
+framework <- function(Y, S, B = 1000, tau = 0.70, pi_ = 0.80, kmax = 6, mode = "value", gapB = 100,
+                      rho = 0, method = "ward") {
+  cl <- clusterer(method); shape <- shape_of(Y); hc <- hclust(dist(shape), "ward.D2"); dsh <- dist(shape)
+  parts <- lapply(2:kmax, function(k) if (method == "ward") cutree(hc, k) else cl(shape, k)); names(parts) <- 2:kmax
+  sil <- sapply(parts, function(g) mean(silhouette(g, dsh)[, 3]))
+  gap <- clusGap(shape, function(x, k) list(cluster = cl(x, k)), K.max = kmax, B = gapB, verbose = FALSE)
   k_gap <- maxSE(gap$Tab[, "gap"], gap$Tab[, "SE.sim"], "Tibs2001SEmax")
-  stab <- lapply(2:kmax, function(k) stability(Y, S, hc, k, B, mode)); names(stab) <- 2:kmax
+  stab <- lapply(2:kmax, function(k) stability(Y, S, hc, k, B, mode, rho = rho, cl = cl, ref = parts[[as.character(k)]]))
+  names(stab) <- 2:kmax
   med <- sapply(stab, function(s) min(tapply(s$p, s$ref, median)))
   unas <- sapply(stab, function(s) mean(s$p < tau))
-  k <- max(as.integer(names(stab))[med >= pi_])
-  ref <- stab[[as.character(k)]]$ref; p <- stab[[as.character(k)]]$p
+  ok <- as.integer(names(stab))[med >= pi_]; k <- if (length(ok)) max(ok) else NA_integer_; kr <- if (is.na(k)) 2L else k
+  ref <- stab[[as.character(kr)]]$ref; p <- stab[[as.character(kr)]]$p
   pc <- Y[, ncol(Y)] - Y[, 1]; o <- order(tapply(pc, ref, median), decreasing = TRUE)
   map <- setNames(seq_along(o), o); ref <- unname(map[as.character(ref)])
-  list(shape = shape, hc = hc, sil = sil, gap = gap$Tab[, "gap"], gap_se = gap$Tab[, "SE.sim"],
-       k_sil = which.max(sil) + 1, k_gap = k_gap, k = k, weakest = med, unas = unas,
-       cluster = ref, p = p, assigned = ifelse(p >= tau, ref, 0), stab = stab)
+  list(shape = shape, hc = hc, sil = unname(sil), gap = gap$Tab[, "gap"], gap_se = gap$Tab[, "SE.sim"],
+       k_sil = unname(which.max(sil)) + 1, k_gap = k_gap, k = k, weakest = med, unas = unas,
+       cluster = ref, p = p, assigned = ifelse(p >= tau, ref, 0), stab = stab, rho = rho, method = method)
 }
 
-#' Moran's I with a supplied row standardised weight matrix, equation (12).
+#' Moran's I with a supplied row standardised weight matrix, equation (13).
 moranI <- function(z, W) { z <- z - mean(z); (length(z) / sum(W)) * as.numeric(t(z) %*% W %*% z) / sum(z^2) }
 
 #' k nearest neighbour row standardised weights from a distance matrix.

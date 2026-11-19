@@ -13,7 +13,11 @@ time zone: Australia/Perth
 tzcode source: system (glibc)
 
 attached base packages:
-[1] stats     graphics  grDevices utils     datasets  methods   base     
+[1] parallel  stats     graphics  grDevices utils     datasets  methods  
+[8] base     
+
+other attached packages:
+[1] maps_3.4.2    nnet_7.3-19   cluster_2.1.6
 
 loaded via a namespace (and not attached):
 [1] compiler_4.3.3

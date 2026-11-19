@@ -11,6 +11,7 @@ jobs:
         run: |
           Rscript analysis/01_run_analysis.R
           Rscript analysis/02_supplement_tables.R
+          Rscript analysis/03_sensitivity_dependence_algorithm.R
           Rscript tests/test_reproduction.R
       - uses: actions/upload-artifact@v4
         with:
