@@ -2,13 +2,19 @@ cff-version: 1.2.0
 message: If you use this code or data, please cite the Zenodo archive below and the accompanying manuscript.
 title: "Clustering trajectories of modelled estimates: uncertainty aware trajectory clustering code and data"
 repository-code: https://github.com/EAfrifa-Yamoah/Clustering_trajectories_of_modelled_estimates
-doi: 10.5281/zenodo.23202766
+doi: 10.5281/zenodo.23202765
 identifiers:
   - type: doi
+    value: 10.5281/zenodo.23202765
+    description: Zenodo concept DOI covering all versions; resolves to the latest release
+  - type: doi
+    value: 10.5281/zenodo.24372735
+    description: Zenodo archive of release v1.1.0
+  - type: doi
     value: 10.5281/zenodo.23202766
-    description: Zenodo archive of release v1.0.0. Version 1.1.0 has not yet been archived.
+    description: Zenodo archive of release v1.0.0
 license: MIT
-version: 1.1.0
+version: 1.1.1
 date-released: 2026-11-19
 authors:
   - family-names: Afrifa-Yamoah

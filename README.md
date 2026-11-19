@@ -1,12 +1,12 @@
 # Clustering trajectories of modelled estimates
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23202766.svg)](https://doi.org/10.5281/zenodo.23202766)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23202765.svg)](https://doi.org/10.5281/zenodo.23202765)
 
 Code and data for *Clustering trajectories of modelled estimates: an uncertainty aware framework, with an application to global cardiovascular disease burden, 1990 to 2023* (Afrifa-Yamoah, draft v1.2, 2026).
 
 The framework clusters country trajectories of modelled health estimates while carrying the published uncertainty through to cluster membership and to the choice of the number of clusters. Every table and figure of the primary analysis is produced by two R scripts from the data files in `data/`. Two further scripts examine how far the result depends on choices the primary analysis fixes (independence of the perturbations across years, the clustering algorithm, the scale of the perturbation) and test the selection rule on simulated data with a known number of trajectory types. The LaTeX tabulars written to `output/tables/` are the ones the manuscript inputs.
 
-The repository is at version 1.1.0. The sensitivity and simulation scripts were added in this version, after the archived release v1.0.0; see [Citation](#citation).
+The repository is at version 1.1.1. Version 1.1.0 added the sensitivity and simulation scripts to the primary analysis of v1.0.0; version 1.1.1 changes documentation and citation metadata only. See [Citation](#citation) for the archived releases.
 
 ## Quick start
 
@@ -170,15 +170,25 @@ Several features limit what can be read from these figures. With 50 data sets pe
 
 If you use the code or data, please cite the archived release:
 
-Afrifa-Yamoah E. (2026). *Clustering trajectories of modelled estimates: uncertainty aware trajectory clustering code and data* (Version 1.0.0) [Computer software]. Zenodo. [https://doi.org/10.5281/zenodo.23202766](https://doi.org/10.5281/zenodo.23202766)
+Afrifa-Yamoah E. (2026). *Clustering trajectories of modelled estimates: uncertainty aware trajectory clustering code and data* (Version 1.1.1) [Computer software]. Zenodo. [https://doi.org/10.5281/zenodo.23202765](https://doi.org/10.5281/zenodo.23202765)
 
 and the accompanying manuscript:
 
 Afrifa-Yamoah E. Clustering trajectories of modelled estimates: an uncertainty aware framework, with an application to global cardiovascular disease burden, 1990 to 2023. Draft v1.2, 2026.
 
-The Zenodo archive holds release v1.0.0, which contains the primary analysis only, and the DOI above resolves to that release. Version 1.1.0 adds the sensitivity and simulation scripts (`analysis/03_*.R`, `analysis/04_*.R`), the `rho` and `method` arguments in `R/framework.R` and their outputs. It has not yet been archived, so work that relies on these additions should cite the repository at version 1.1.0 by its URL and commit until a DOI for that version exists.
+The DOI in this citation, [10.5281/zenodo.23202765](https://doi.org/10.5281/zenodo.23202765), is the Zenodo concept DOI: it covers all versions and resolves to the latest archived release. A DOI specific to a version exists only once Zenodo has archived that release, so it cannot be written into the files of the release itself.
 
-Citation metadata are in `CITATION.cff`, which records version 1.1.0; GitHub's "Cite this repository" button reads from it.
+| Version | DOI | Content |
+|---|---|---|
+| 1.1.1 | assigned by Zenodo when the release is archived; listed on the concept DOI page | as 1.1.0, with measured runtimes in the README and corrected version and DOI metadata in `CITATION.cff` |
+| 1.1.0 | [10.5281/zenodo.24372735](https://doi.org/10.5281/zenodo.24372735) | primary analysis, sensitivity analyses (`analysis/03_*.R`), simulation (`analysis/04_*.R`), the `rho` and `method` arguments in `R/framework.R` |
+| 1.0.0 | [10.5281/zenodo.23202766](https://doi.org/10.5281/zenodo.23202766) | primary analysis only |
+
+Where a DOI specific to the version used is available, cite that one. Code, data and output files are identical in versions 1.1.0 and 1.1.1, so results do not depend on which of the two is used.
+
+The v1.1.0 archive is a snapshot of commit `984db47`. Its code, data and output files are identical to those in this repository; its copies of `README.md` and `CITATION.cff` predate the runtime table and the version 1.1.0 metadata, so `CITATION.cff` inside the archive still reads version 1.0.0.
+
+Citation metadata are in `CITATION.cff`, which records version 1.1.1 and the concept DOI; GitHub's "Cite this repository" button reads from it.
 
 ## Licence
 
